@@ -13,11 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(138, 43, 226, 0.4) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(147, 0, 211, 0.4) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(75, 0, 130, 0.3) 0%, transparent 50%);
+            background: linear-gradient(to bottom, #0a0a0a, #4b0082);
             color: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
@@ -34,29 +30,12 @@
             z-index: -1;
         }
 
-        .floating-shapes {
+        #particle-canvas {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-        }
-
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(45deg, rgba(138, 43, 226, 0.1), rgba(147, 0, 211, 0.1));
-            animation: float 20s infinite linear;
-        }
-
-        .shape:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
-        .shape:nth-child(2) { width: 120px; height: 120px; left: 20%; animation-delay: 2s; }
-        .shape:nth-child(3) { width: 60px; height: 60px; left: 60%; animation-delay: 4s; }
-        .shape:nth-child(4) { width: 100px; height: 100px; left: 80%; animation-delay: 6s; }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
 
         .container {
@@ -73,21 +52,27 @@
             margin-bottom: 40px;
         }
 
+        .logo {
+            width: 110px;
+            height: 110px;
+            margin-left: 10px;
+        }
+
         .header h1 {
             font-size: 4rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #8a2be2, #9932cc, #4b0082);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 50px rgba(138, 43, 226, 0.6);
+            color: #ffffff;
+            text-shadow: 0 0 50px rgba(148, 0, 211, 0.5);
             margin-bottom: 15px;
             animation: glow 3s ease-in-out infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         @keyframes glow {
-            from { filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.6)); }
-            to { filter: drop-shadow(0 0 30px rgba(147, 0, 211, 0.8)); }
+            from { filter: drop-shadow(0 0 20px rgba(148, 0, 211, 0.6)); }
+            to { filter: drop-shadow(0 0 30px rgba(148, 0, 211, 0.8)); }
         }
 
         .subtitle {
@@ -415,39 +400,13 @@
 </head>
 <body>
     <div class="background-animation">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
+        <canvas id="particle-canvas"></canvas>
     </div>
 
     <div class="container">
         <div class="header">
-            <h1>Slayy Shop 💜</h1>
+            <h1>Slayy Shop<img src="logo.png" alt="Slayy Shop Logo" class="logo"></h1>
             <p class="subtitle">Retrouvez tous vos loaders sur cette page</p>
-        </div>
-
-        <div class="status-section">
-            <h2 class="status-title">Status des Loaders</h2>
-            
-            <div class="status-grid">
-                <div class="status-item">
-                    <span class="status-indicator status-functional"></span>
-                    <span class="status-text">Operational</span>
-                </div>
-                
-                <div class="status-item">
-                    <span class="status-indicator status-updating"></span>
-                    <span class="status-text">Instable</span>
-                </div>
-                
-                <div class="status-item">
-                    <span class="status-indicator status-required"></span>
-                    <span class="status-text">Maintenance</span>
-                </div>
-            </div>
         </div>
 
         <div class="download-section">
@@ -474,27 +433,27 @@
                 
                 <div class="download-item">
                     <span class="download-icon">🛡️</span>
-                    <div class="download-name">B06 External</div>
+                    <div class="download-name">B06/WZ Premium Chair</div>
                     <div class="download-desc">Discret mais destructeur</div>
-                    <button class="download-btn" onclick="window.open('https://mega.nz/file/6ghVibYD#rTOuLTJPtZT6ft4Fmxd2__4lJYIVNgOaitWO6ybCfok', '_blank')">
+                    <button class="download-btn" onclick="window.open('https://mega.nz/folder/j5gDQIJR#zV4oOIlnss8wZFqUYIJPkg', '_blank')">
                         Télécharger
                     </button>
                 </div>
                 
                 <div class="download-item">
                     <span class="download-icon">💻</span>
-                    <div class="download-name">Fortnite Private</div>
+                    <div class="download-name">B06/WZ Pro Chair</div>
                     <div class="download-desc">La qualité est incontournable</div>
-                    <button class="download-btn" onclick="window.open('https://mega.nz/file/Xh4RDCrJ#Dcg0foc_45IydzW2jVNYxJjTa74sMynI_QEtBUy19zw', '_blank')"">
+                    <button class="download-btn" onclick="window.open('https://mega.nz/folder/XwICAC6Q#feOoWH2402fgdMHuX47TXA', '_blank')"">
                         Télécharger
                     </button>
                 </div>
                 
                 <div class="download-item">
                     <span class="download-icon">🧨</span>
-                    <div class="download-name">Apex Private</div>
+                    <div class="download-name">Lobby Stats</div>
                     <div class="download-desc">Efficace et indétectable</div>
-                    <button class="download-btn" onclick="window.open('https://mega.nz/file/zx4kGS5Q#eXz__fZ6ZulfOp_713yKj_Bb_NrBbVlqaOOsYoYBP9E', '_blank')">
+                    <button class="download-btn" onclick="window.open('https://mega.nz/folder/y8ZnhQ5C#Uxg3dssI5qK0m9MA0rEk3w', '_blank')">
                         Télécharger
                     </button>
                 </div>
@@ -503,7 +462,7 @@
                     <span class="download-icon">🔄</span>
                     <div class="download-name">Cleaner Fivem</div>
                     <div class="download-desc">Etape cruciale pour se spoof </div>
-                    <button class="download-btn" onclick="window.open('https://mega.nz/file/HwwjFDbJ#O23t7L4o5FNETUZQnFSmXCV-U1zgmDgn3WTxl56z-wk', '_blank')">
+                    <button class="download-btn" onclick="window.open('https://mega.nz/file/XwATGAJR#k1ePpZmF59SXSWBdrQls6Cg3KjrU0F6jq6PrlTh-dPQ', '_blank')">
                         Télécharger
                     </button>
                 </div>
@@ -613,6 +572,66 @@
                 requestAnimationFrame(animate);
             }
         }
+
+        // Background particle effect
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        const particleCount = 150;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = (Math.random() * 1 - 0.5) * 0.5;
+                this.speedY = (Math.random() * 1 - 0.5) * 0.5;
+                this.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.2})`;
+            }
+
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+                if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+                this.x += this.speedX;
+                this.y += this.speedY;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (const particle of particles) {
+                particle.update();
+                particle.draw();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
     </script>
 </body>
 </html>
